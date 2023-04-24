@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.Graphics;
 
 public class CalendarView extends JFrame {
     private final int WINDOW_WIDTH = 1000;
@@ -11,5 +12,8 @@ public class CalendarView extends JFrame {
         this.setTitle("Calendar 2023");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setVisible(true);
+    }
+
+    public void paint(Graphics g) {
     }
 }
