@@ -34,6 +34,9 @@ public class Calendar {
         return false;
     }
 
+    public ArrayList<Month> getMonths() {
+        return calendar;
+    }
     public int getYear() {
         return this.year;
     }

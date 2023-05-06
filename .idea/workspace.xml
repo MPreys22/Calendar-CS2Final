@@ -4,12 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7598f9c0-35a5-46e8-b618-f9a613e053b5" name="Changes" comment="Function Headers and instance variables.">
-      <change afterPath="$PROJECT_DIR$/Resources/FullYear.png" afterDir="false" />
+    <list default="true" id="7598f9c0-35a5-46e8-b618-f9a613e053b5" name="Changes" comment="Function Headers and instance variables.&#10;Start of function: Prototype">
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Apr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Aug.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Dec.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Feb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Jan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Jul.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Jun.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Mar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/May.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Nov.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Oct.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/Months/Sep.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Calendar-CS2Final.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Calendar-CS2Final.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calendar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalendarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Month.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682383876360</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Function Headers and instance variables.&#10;Start of function: Prototype">
+      <created>1682572183152</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682572183152</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,7 +134,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="The Start!" />
     <MESSAGE value="Function Headers and instance variables." />
-    <option name="LAST_COMMIT_MESSAGE" value="Function Headers and instance variables." />
+    <MESSAGE value="Function Headers and instance variables.&#10;Start of function: Prototype" />
+    <option name="LAST_COMMIT_MESSAGE" value="Function Headers and instance variables.&#10;Start of function: Prototype" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
