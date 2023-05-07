@@ -5,21 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7598f9c0-35a5-46e8-b618-f9a613e053b5" name="Changes" comment="Function Headers and instance variables.&#10;Start of function: Prototype">
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Apr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Aug.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Dec.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Feb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Jan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Jul.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Jun.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Mar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/May.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Nov.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Oct.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/Months/Sep.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calendar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalendarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Day.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Month.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682572183152</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Function Headers and instance variables.&#10;Start of function: Prototype">
+      <created>1683350993943</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683350993943</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

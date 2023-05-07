@@ -9,10 +9,13 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
     private String month;
     private String screen;
     private String day;
+    private int monthIdx;
+    private int dayIdx;
+    private String event;
 
-    public CalendarView(Calendar c) {
+    public CalendarView(Calendar cal) {
         month = "";
-        this.c = c;
+        c = cal;
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Calendar 2023");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -20,8 +23,11 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
         addMouseListener(this);
         addMouseMotionListener(this);
         this.setVisible(true);
-        this.screen = "month";
+        screen = "month";
         day = "";
+        monthIdx = -1;
+        dayIdx = -1;
+        event = "";
 
     }
     public void paint(Graphics g) {
@@ -29,50 +35,15 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
         g.fillRect(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
         screen = "month";
 
-        if(month.equals("J")) {
-            g.drawImage(c.getMonths().get(0).getMonthImage(), 0, 25, 800, 800, this);
-            if(day.equals("1")) {
-                g.fillRect(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
-                g.drawString(c.getMonths().get(0).getDays().get(0).getApts(), 100, 100);
-                System.out.println("f");
-            }
-        }
-        else if(month.equals("F")) {
-            g.drawImage(c.getMonths().get(1).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("M")) {
-            g.drawImage(c.getMonths().get(2).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("A")) {
-            g.drawImage(c.getMonths().get(3).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("May")) {
-            g.drawImage(c.getMonths().get(4).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("Jun")) {
-            g.drawImage(c.getMonths().get(5).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("Jul")) {
-            g.drawImage(c.getMonths().get(6).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("Au")) {
-            g.drawImage(c.getMonths().get(7).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("S")) {
-            g.drawImage(c.getMonths().get(8).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("O")) {
-            g.drawImage(c.getMonths().get(9).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("N")) {
-            g.drawImage(c.getMonths().get(10).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else if(month.equals("D")) {
-            g.drawImage(c.getMonths().get(11).getMonthImage(), 0, 25, 800, 800, this);
-        }
-        else {
+        if(month.equals("")){
             g.drawImage(c.getMainCalendar(), 0, 25, 800, 800, this);
             screen = "cal";
+        }
+        else {
+            c.getMonths().get(monthIdx).draw(g);
+            if(!day.equals("")) {
+                c.getMonths().get(monthIdx).getDays().get(dayIdx).draw(g);
+            }
         }
 
 
@@ -80,12 +51,13 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
 
     public void keyTyped(KeyEvent e)
     {
+
     }
 
     @Override
     public void keyReleased(KeyEvent e)
     {
-
+        event += e.getKeyChar();
     }
 
     @Override
@@ -94,7 +66,7 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
         int keyCode = e.getKeyCode();
         if(keyCode == KeyEvent.VK_ESCAPE) {
             if(day.equals("")) {
-                month = "esc";
+                month = "";
                 repaint();
             }
             else {
@@ -103,7 +75,12 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
             }
         }
         if(keyCode == KeyEvent.VK_ENTER) {
-            repaint();
+            dayIdx = c.getDayIndex(day);
+            if(dayIdx != -1) {
+                c.getMonths().get(monthIdx).getDays().get(dayIdx).setApts(event);
+                repaint();
+            }
+            event = "";
         }
         if(keyCode == KeyEvent.VK_1) {
             day += "1";
@@ -145,47 +122,59 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
 
             if (e.getY() > 0 && e.getY() < 204) {
                 if (e.getX() > 0 && e.getX() < 247) {
-                    month = "J";
+                    monthIdx = c.getMonthIndex("J");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
-                    month = "F";
+                    monthIdx = c.getMonthIndex("F");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 550 && e.getX() < 794) {
-                    month = "M";
+                    monthIdx = c.getMonthIndex("M");
+                    month = "f";
                     repaint();
                 }
 
             } else if (e.getY() > 232 && e.getY() < 412) {
                 if (e.getX() > 0 && e.getX() < 247) {
-                    month = "A";
+                    monthIdx = c.getMonthIndex("A");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
-                    month = "May";
+                    monthIdx = c.getMonthIndex("May");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 550 && e.getX() < 794) {
-                    month = "Jun";
+                    monthIdx = c.getMonthIndex("Jun");
+                    month = "f";
                     repaint();
                 }
             } else if (e.getY() > 438 && e.getY() < 618) {
                 if (e.getX() > 0 && e.getX() < 247) {
-                    month = "Jul";
+                    monthIdx = c.getMonthIndex("Jul");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
-                    month = "Au";
+                    monthIdx = c.getMonthIndex("Au");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 550 && e.getX() < 794) {
-                    month = "S";
+                    monthIdx = c.getMonthIndex("S");
+                    month = "f";
                     repaint();
                 }
             } else if (e.getY() > 643 && e.getY() < 820) {
                 if (e.getX() > 0 && e.getX() < 247) {
-                    month = "O";
+                    monthIdx = c.getMonthIndex("O");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
-                    month = "N";
+                    monthIdx = c.getMonthIndex("N");
+                    month = "f";
                     repaint();
                 } else if (e.getX() > 550 && e.getX() < 794) {
-                    month = "D";
+                    monthIdx = c.getMonthIndex("D");
+                    month = "f";
                     repaint();
                 }
             }
