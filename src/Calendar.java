@@ -7,22 +7,24 @@ public class Calendar {
     private String[] months;
     private CalendarView window;
     private Image mainCalendar;
+    private String screen;
 
     public Calendar() {
-        this.year = 2023;
+        year = 2023;
         calendar = new ArrayList<>();
         months = new String[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         mainCalendar = new ImageIcon("Resources/FullYear.png").getImage();
         this.window = new CalendarView(this);
+        screen = "Calendar";
         for(int i=0; i<12; i++) {
             if(oneEquals(i, 0, 2, 4, 6, 7, 9, 11)) {
-                calendar.add(new Month(months[i], 31, this.window));
+                calendar.add(new Month(months[i], 31, this.window, this));
             }
             else if (i == 1){
-                calendar.add(new Month(months[i], 28, this.window));
+                calendar.add(new Month(months[i], 28, this.window, this));
             }
             else {
-                calendar.add(new Month(months[i], 30, this.window));
+                calendar.add(new Month(months[i], 30, this.window, this));
             }
         }
     }
@@ -41,6 +43,7 @@ public class Calendar {
         return this.year;
     }
 
+    // Use parseInt to simplify this!
     public int getDayIndex(String s) {
         if(s.equals("1")) {
             return 0;
@@ -176,6 +179,14 @@ public class Calendar {
         else {
             return 11;
         }
+    }
+
+    public String getScreen() {
+        return screen;
+    }
+
+    public void setScreen(String screen) {
+        this.screen = screen;
     }
 
     public Image getMainCalendar() {

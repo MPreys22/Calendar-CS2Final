@@ -7,15 +7,19 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
     private final int WINDOW_HEIGHT = 825;
     private Calendar c;
     private String month;
-    private String screen;
     private String day;
     private int monthIdx;
     private int dayIdx;
     private String event;
 
     public CalendarView(Calendar cal) {
-        month = "";
         c = cal;
+        month = "";
+        day = "";
+        monthIdx = -1;
+        dayIdx = -1;
+        event = "";
+
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setTitle("Calendar 2023");
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -23,21 +27,15 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
         addMouseListener(this);
         addMouseMotionListener(this);
         this.setVisible(true);
-        screen = "month";
-        day = "";
-        monthIdx = -1;
-        dayIdx = -1;
-        event = "";
-
     }
     public void paint(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
-        screen = "month";
+        c.setScreen("Month");
 
         if(month.equals("")){
             g.drawImage(c.getMainCalendar(), 0, 25, 800, 800, this);
-            screen = "cal";
+            c.setScreen("Calendar");
         }
         else {
             c.getMonths().get(monthIdx).draw(g);
@@ -45,20 +43,11 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
                 c.getMonths().get(monthIdx).getDays().get(dayIdx).draw(g);
             }
         }
-
-
     }
 
-    public void keyTyped(KeyEvent e)
-    {
-
-    }
-
+    public void keyTyped(KeyEvent e) {}
     @Override
-    public void keyReleased(KeyEvent e)
-    {
-        event += e.getKeyChar();
-    }
+    public void keyReleased(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e)
@@ -75,12 +64,17 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
             }
         }
         if(keyCode == KeyEvent.VK_ENTER) {
-            dayIdx = c.getDayIndex(day);
+            if(c.getScreen().equals("Month")) {
+                dayIdx = c.getDayIndex(day);
+            }
             if(dayIdx != -1) {
-                c.getMonths().get(monthIdx).getDays().get(dayIdx).setApts(event);
+                event = "";
+                c.getMonths().get(monthIdx).getDays().get(dayIdx).setEnterIsClicked(true);
                 repaint();
             }
-            event = "";
+        }
+        if(keyCode == KeyEvent.VK_BACK_SPACE) {
+
         }
         if(keyCode == KeyEvent.VK_1) {
             day += "1";
@@ -112,14 +106,22 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
         if(keyCode == KeyEvent.VK_0) {
             day += "0";
         }
+
+        event += e.getKeyChar();
+        if (keyCode != KeyEvent.VK_BACK_SPACE && keyCode != KeyEvent.VK_SHIFT && keyCode != KeyEvent.VK_ENTER) {
+            if (dayIdx != -1 && c.getScreen().equals("Day")) {
+                c.getMonths().get(monthIdx).getDays().get(dayIdx).addApts(event);
+                repaint();
+            }
+            event = "";
+        }
         // Sequencing of keys, for days, check which keys are typed
     }
 
     public void mousePressed(MouseEvent e)
     {
         // Make the circle green whenever you press the mouse.
-        if(screen.equals("cal")) {
-
+        if(c.getScreen().equals("Calendar")) {
             if (e.getY() > 0 && e.getY() < 204) {
                 if (e.getX() > 0 && e.getX() < 247) {
                     monthIdx = c.getMonthIndex("J");
@@ -129,12 +131,11 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
                     monthIdx = c.getMonthIndex("F");
                     month = "f";
                     repaint();
-                } else if (e.getX() > 550 && e.getX() < 794) {
+                } else {
                     monthIdx = c.getMonthIndex("M");
                     month = "f";
                     repaint();
                 }
-
             } else if (e.getY() > 232 && e.getY() < 412) {
                 if (e.getX() > 0 && e.getX() < 247) {
                     monthIdx = c.getMonthIndex("A");
@@ -144,7 +145,7 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
                     monthIdx = c.getMonthIndex("May");
                     month = "f";
                     repaint();
-                } else if (e.getX() > 550 && e.getX() < 794) {
+                } else {
                     monthIdx = c.getMonthIndex("Jun");
                     month = "f";
                     repaint();
@@ -158,12 +159,12 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
                     monthIdx = c.getMonthIndex("Au");
                     month = "f";
                     repaint();
-                } else if (e.getX() > 550 && e.getX() < 794) {
+                } else {
                     monthIdx = c.getMonthIndex("S");
                     month = "f";
                     repaint();
                 }
-            } else if (e.getY() > 643 && e.getY() < 820) {
+            } else {
                 if (e.getX() > 0 && e.getX() < 247) {
                     monthIdx = c.getMonthIndex("O");
                     month = "f";
@@ -172,45 +173,23 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
                     monthIdx = c.getMonthIndex("N");
                     month = "f";
                     repaint();
-                } else if (e.getX() > 550 && e.getX() < 794) {
+                } else {
                     monthIdx = c.getMonthIndex("D");
                     month = "f";
                     repaint();
                 }
             }
         }
-
     }
 
 
-    public void mouseReleased(MouseEvent e)
-    {
-        // Make the circle blue whenever you let go of the mouse
-
+    public void mouseReleased(MouseEvent e) {// Make the circle blue whenever you let go of the mouse
     }
-
-
-    public void mouseClicked(MouseEvent e)
-    {
-
-    }
-
-
-    public void mouseEntered(MouseEvent e)
-    {
-
-    }
-
-    public void mouseExited(MouseEvent e)
-    {
-
-    }
-
+    public void mouseClicked(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
     public void mouseDragged(MouseEvent e) { // this method gets called every time you click and drag
-        int xMouse = e.getX();
-        int yMouse = e.getY();
     }
-
     public void mouseMoved(MouseEvent e) { // this method gets called everytime you move the mouse
     }
 }

@@ -9,13 +9,16 @@ public class Month {
     private String name;
     private ArrayList<Day> days;
     private CalendarView calView;
+    private Calendar cal;
 
-    public Month(String name, int numDays, CalendarView calView) {
+    // TODO make state of days vs months vs calendar
+    public Month(String name, int numDays, CalendarView calView, Calendar c) {
         days = new ArrayList<Day>();
         img = new ImageIcon("Resources/Months/" + name + ".png").getImage();
         this.calView = calView;
+        cal = c;
         for(int i=0; i<numDays; i++) {
-            this.days.add(new Day(i +1, calView, this));
+            this.days.add(new Day(i +1, calView, name, c));
         }
     }
 
@@ -33,5 +36,6 @@ public class Month {
 
     public void draw (Graphics g) {
         g.drawImage(getMonthImage(), 0, 25, 800, 800, calView);
+        cal.setScreen("Month");
     }
 }

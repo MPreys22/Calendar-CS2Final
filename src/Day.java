@@ -1,38 +1,50 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Day {
     private int numDay;
-    private int numApts;
+    private ArrayList<String> allApts;
     private String apts;
     private CalendarView calView;
-    private Month m;
+    private String m;
+    private int aptCoord;
+    private boolean isClicked;
+    private Calendar cal;
 
-    public Day(int numDay, CalendarView window, Month month) {
+    public Day(int numDay, CalendarView window, String month, Calendar c) {
         calView = window;
         this.numDay = numDay;
         apts = "";
         m = month;
+        allApts = new ArrayList<String>();
+        aptCoord = 150;
+        isClicked = false;
+        cal = c;
     }
 
     public int getNumDay() {
         return this.numDay;
     }
 
-    public int getNumApts() {
-        return this.numApts;
+    public void setEnterIsClicked(boolean in) {
+        isClicked = in;
     }
 
-    public String getApts() {
-        return this.apts;
+    public void addApts(String apt) {
+
+            if(apts.length() > 100 || isClicked == true) {
+                allApts.add(apts);
+                apts = "";
+                isClicked = false;
+            }
+            apts = apts + apt;
+
     }
 
     public void setApts(String apt) {
-        if(apts.equals("")) {
-            apts = apt;
-        }
-        else {
-            apts = apts + apt;
-        }
+        apts = apt;
+        allApts.remove(allApts.size()-1);
+        allApts.add(apts);
     }
 
     public void draw(Graphics g) {
@@ -40,11 +52,22 @@ public class Day {
         if(apts != null) {
             g.setFont(new Font("Serif", Font.PLAIN, 50));
             g.setColor(Color.black);
-            g.drawString(m.getMonth() + " " + numDay,325, 100);
+
+            g.drawString(m + " " + numDay,325, 100);
             g.setFont(new Font("Serif", Font.PLAIN, 12));
-            g.drawString(apts, 100, 150);
+
+            // Print as im typing but clear once I reach the length thing
+            if(!allApts.isEmpty()) {
+                for (String s : allApts) {
+                    g.drawString(s, 100, aptCoord);
+                    aptCoord += 20;
+                }
+            }
+            g.drawString(apts, 100, aptCoord + 15);
             g.setColor(Color.white);
-=        }
+            aptCoord = 150;
+            cal.setScreen("Day");
+        }
     }
 
 }
