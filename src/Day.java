@@ -41,10 +41,10 @@ public class Day {
 
     }
 
-    public void setApts(String apt) {
-        apts = apt;
-        allApts.remove(allApts.size()-1);
-        allApts.add(apts);
+    public void backSpace() {
+        if(apts.length() != 0) {
+            apts = apts.substring(0, apts.length() - 1);
+        }
     }
 
     public void draw(Graphics g) {

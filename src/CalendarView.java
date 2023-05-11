@@ -74,7 +74,8 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
             }
         }
         if(keyCode == KeyEvent.VK_BACK_SPACE) {
-
+            c.getMonths().get(monthIdx).getDays().get(dayIdx).backSpace();
+            repaint();
         }
         if(keyCode == KeyEvent.VK_1) {
             day += "1";

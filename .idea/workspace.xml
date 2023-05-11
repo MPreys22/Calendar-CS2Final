@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7598f9c0-35a5-46e8-b618-f9a613e053b5" name="Changes" comment="Function Headers and instance variables.&#10;Start of function: Prototype">
+    <list default="true" id="7598f9c0-35a5-46e8-b618-f9a613e053b5" name="Changes" comment="Fully functional no comments with enter and line break (No backspace)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calendar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalendarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Day.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Month.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683499026666</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fully functional no comments with enter and line break (No backspace)">
+      <created>1683744950070</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1683744950070</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,7 +157,8 @@
     <MESSAGE value="The Start!" />
     <MESSAGE value="Function Headers and instance variables." />
     <MESSAGE value="Function Headers and instance variables.&#10;Start of function: Prototype" />
-    <option name="LAST_COMMIT_MESSAGE" value="Function Headers and instance variables.&#10;Start of function: Prototype" />
+    <MESSAGE value="Fully functional no comments with enter and line break (No backspace)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully functional no comments with enter and line break (No backspace)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
