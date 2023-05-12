@@ -4,7 +4,6 @@ import javax.swing.ImageIcon;
 import static java.lang.Integer.parseInt;
 
 public class Calendar {
-    private int year;
     private ArrayList<Month> calendar;
     private String[] months;
     private CalendarView window;
@@ -12,7 +11,6 @@ public class Calendar {
     private String screen;
 
     public Calendar() {
-        year = 2023;
         calendar = new ArrayList<>();
         months = new String[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         mainCalendar = new ImageIcon("Resources/FullYear.png").getImage();
