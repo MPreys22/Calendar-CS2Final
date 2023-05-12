@@ -4,9 +4,7 @@ import java.awt.Image;
 import java.awt.Graphics;
 
 public class Month {
-    private int numDays;
     private Image img;
-    private String name;
     private ArrayList<Day> days;
     private CalendarView calView;
     private Calendar cal;
@@ -22,20 +20,14 @@ public class Month {
         }
     }
 
-    public String getMonth() {
-        return this.name;
-    }
-
+    // Get back all the days to access
     public ArrayList<Day> getDays() {
         return days;
     }
 
-    public Image getMonthImage() {
-        return img;
-    }
-
+    // Draw specific month then set the screen to month
     public void draw (Graphics g) {
-        g.drawImage(getMonthImage(), 0, 25, 800, 800, calView);
+        g.drawImage(img, 0, 25, 800, 800, calView);
         cal.setScreen("Month");
     }
 }

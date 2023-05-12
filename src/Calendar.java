@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import static java.lang.Integer.parseInt;
+
 public class Calendar {
     private int year;
     private ArrayList<Month> calendar;
@@ -29,6 +31,7 @@ public class Calendar {
         }
     }
 
+    // Used for all the months for 31 days, (Majority)
     public boolean oneEquals(int start, int m0, int m1, int m2, int m3, int m4, int m5, int m6){
         if(start == m0 || start == m1 || start == m2 || start == m3 || start == m4 || start == m5 || start == m6) {
             return true;
@@ -36,112 +39,23 @@ public class Calendar {
         return false;
     }
 
+    // Allows access to all months
     public ArrayList<Month> getMonths() {
         return calendar;
     }
-    public int getYear() {
-        return this.year;
-    }
 
-    // Use parseInt to simplify this!
+    // Depending on the day inputted, find if there is a day equal to it then return that days index
+    // If there is no day, return -1
     public int getDayIndex(String s) {
-        if(s.equals("1")) {
-            return 0;
+        int input = parseInt(s);
+        for(int i=1; i<= 31; i++) {
+            if(i == input) {
+                return i-1;
+            }
         }
-        else if(s.equals("2")) {
-            return 1;
-        }
-        else if(s.equals("3")) {
-            return 2;
-        }
-        else if(s.equals("4")) {
-            return 3;
-        }
-        else if(s.equals("5")) {
-            return 4;
-        }
-        else if(s.equals("6")) {
-            return 5;
-        }
-        else if(s.equals("7")) {
-            return 6;
-        }
-        else if(s.equals("8")) {
-            return 7;
-        }
-        else if(s.equals("9")) {
-            return 8;
-        }
-        else if(s.equals("10")) {
-            return 9;
-        }
-        else if(s.equals("11")) {
-            return 10;
-        }
-        else if(s.equals("12")) {
-            return 11;
-        }
-        else if(s.equals("13")) {
-            return 12;
-        }
-        else if(s.equals("14")) {
-            return 13;
-        }
-        else if(s.equals("15")) {
-            return 14;
-        }
-        else if(s.equals("16")) {
-            return 15;
-        }
-        else if(s.equals("17")) {
-            return 16;
-        }
-        else if(s.equals("18")) {
-            return 17;
-        }
-        else if(s.equals("19")) {
-            return 18;
-        }
-        else if(s.equals("20")) {
-            return 19;
-        }
-        else if(s.equals("21")) {
-            return 20;
-        }
-        else if(s.equals("22")) {
-            return 21;
-        }
-        else if(s.equals("23")) {
-            return 22;
-        }
-        else if(s.equals("24")) {
-            return 23;
-        }
-        else if(s.equals("25")) {
-            return 24;
-        }
-        else if(s.equals("26")) {
-            return 25;
-        }
-        else if(s.equals("27")) {
-            return 26;
-        }
-        else if(s.equals("28")) {
-            return 27;
-        }
-        else if(s.equals("29")) {
-            return 28;
-        }
-        else if(s.equals("30")) {
-            return 29;
-        }
-        else if(s.equals("31")){
-            return 30;
-        }
-        else{
-            return -1;
-        }
+        return -1;
     }
+    // Depending on the month string inputted, give back an index which correlates to each month
     public int getMonthIndex(String s) {
         if(s.equals("J")) {
             return 0;
@@ -181,18 +95,22 @@ public class Calendar {
         }
     }
 
+    // Return the screen which the program is on for making decisions about certain key inputs
     public String getScreen() {
         return screen;
     }
 
+    // Allows to set screen from any class that has a calendar variable
     public void setScreen(String screen) {
         this.screen = screen;
     }
 
+    // Just returns the mainCalendar image
     public Image getMainCalendar() {
         return mainCalendar;
     }
 
+    // Creates a new Calendar which makes a new window
     public static void main(String[] args) {
         Calendar newYear = new Calendar();
     }

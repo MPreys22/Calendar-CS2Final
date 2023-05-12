@@ -6,7 +6,7 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
     private final int WINDOW_WIDTH = 800;
     private final int WINDOW_HEIGHT = 825;
     private Calendar c;
-    private String month;
+    private boolean month;
     private String day;
     private int monthIdx;
     private int dayIdx;
@@ -14,7 +14,7 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
 
     public CalendarView(Calendar cal) {
         c = cal;
-        month = "";
+        month = false;
         day = "";
         monthIdx = -1;
         dayIdx = -1;
@@ -29,33 +29,37 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
         this.setVisible(true);
     }
     public void paint(Graphics g) {
+        // Draw over the original calendar page
         g.setColor(Color.white);
         g.fillRect(0,0, WINDOW_WIDTH, WINDOW_HEIGHT);
         c.setScreen("Month");
 
-        if(month.equals("")){
+        if(month == false){
+            // Original calendar screen with all months
             g.drawImage(c.getMainCalendar(), 0, 25, 800, 800, this);
             c.setScreen("Calendar");
         }
         else {
+            // If month is true meaning one was clicked, draw the image of that month
             c.getMonths().get(monthIdx).draw(g);
             if(!day.equals("")) {
+                // Same thing as the month for the day, is not empty and has a value, draw that day
                 c.getMonths().get(monthIdx).getDays().get(dayIdx).draw(g);
             }
         }
     }
 
-    public void keyTyped(KeyEvent e) {}
-    @Override
-    public void keyReleased(KeyEvent e) {}
-
     @Override
     public void keyPressed(KeyEvent e)
     {
+        // Get the integer value of key pressed
         int keyCode = e.getKeyCode();
+
+        // Escape will result in day or month being set to empty/false and repainting making
+        // the program go back a screen
         if(keyCode == KeyEvent.VK_ESCAPE) {
             if(day.equals("")) {
-                month = "";
+                month = false;
                 repaint();
             }
             else {
@@ -63,6 +67,8 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
                 repaint();
             }
         }
+        // Depending on which screen the program is on, the enter key will either help
+        // get the day or result in a line break
         if(keyCode == KeyEvent.VK_ENTER) {
             if(c.getScreen().equals("Month")) {
                 dayIdx = c.getDayIndex(day);
@@ -73,10 +79,12 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
                 repaint();
             }
         }
+        // Delete last character drawn
         if(keyCode == KeyEvent.VK_BACK_SPACE) {
             c.getMonths().get(monthIdx).getDays().get(dayIdx).backSpace();
             repaint();
         }
+        // For every number pressed, concat to the day string until enter is pressed to get that day
         if(keyCode == KeyEvent.VK_1) {
             day += "1";
         }
@@ -108,6 +116,8 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
             day += "0";
         }
 
+        // Event is the string being typed and if on the day screen and a valid day, the specific day will
+        // draw what is inputted
         event += e.getKeyChar();
         if (keyCode != KeyEvent.VK_BACK_SPACE && keyCode != KeyEvent.VK_SHIFT && keyCode != KeyEvent.VK_ENTER) {
             if (dayIdx != -1 && c.getScreen().equals("Day")) {
@@ -116,74 +126,76 @@ public class CalendarView extends JFrame implements KeyListener, MouseListener, 
             }
             event = "";
         }
-        // Sequencing of keys, for days, check which keys are typed
     }
 
     public void mousePressed(MouseEvent e)
     {
-        // Make the circle green whenever you press the mouse.
+        // Make sure the screen is the calendar and if so, check which coordinates for
+        // choosing and setting the month variable to true for checks like escape
         if(c.getScreen().equals("Calendar")) {
             if (e.getY() > 0 && e.getY() < 204) {
                 if (e.getX() > 0 && e.getX() < 247) {
                     monthIdx = c.getMonthIndex("J");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
                     monthIdx = c.getMonthIndex("F");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else {
                     monthIdx = c.getMonthIndex("M");
-                    month = "f";
+                    month = true;
                     repaint();
                 }
             } else if (e.getY() > 232 && e.getY() < 412) {
                 if (e.getX() > 0 && e.getX() < 247) {
                     monthIdx = c.getMonthIndex("A");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
                     monthIdx = c.getMonthIndex("May");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else {
                     monthIdx = c.getMonthIndex("Jun");
-                    month = "f";
+                    month = true;
                     repaint();
                 }
             } else if (e.getY() > 438 && e.getY() < 618) {
                 if (e.getX() > 0 && e.getX() < 247) {
                     monthIdx = c.getMonthIndex("Jul");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
                     monthIdx = c.getMonthIndex("Au");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else {
                     monthIdx = c.getMonthIndex("S");
-                    month = "f";
+                    month = true;
                     repaint();
                 }
             } else {
                 if (e.getX() > 0 && e.getX() < 247) {
                     monthIdx = c.getMonthIndex("O");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else if (e.getX() > 273 && e.getX() < 521) {
                     monthIdx = c.getMonthIndex("N");
-                    month = "f";
+                    month = true;
                     repaint();
                 } else {
                     monthIdx = c.getMonthIndex("D");
-                    month = "f";
+                    month = true;
                     repaint();
                 }
             }
         }
     }
 
-
+    public void keyTyped(KeyEvent e) {}
+    @Override
+    public void keyReleased(KeyEvent e) {}
     public void mouseReleased(MouseEvent e) {// Make the circle blue whenever you let go of the mouse
     }
     public void mouseClicked(MouseEvent e) {}
