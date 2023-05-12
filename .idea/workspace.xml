@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7598f9c0-35a5-46e8-b618-f9a613e053b5" name="Changes" comment="Fully functional no comments with enter and line break &#10;BackSpace working for current line">
+    <list default="true" id="7598f9c0-35a5-46e8-b618-f9a613e053b5" name="Changes" comment="Fully functional comments with enter and line break &#10;BackSpace working for current line">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calendar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CalendarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Day.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Month.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +143,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683825498537</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fully functional comments with enter and line break &#10;BackSpace working for current line">
+      <created>1683909133166</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683909133166</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fully functional comments with enter and line break &#10;BackSpace working for current line">
+      <created>1683909161064</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1683909161064</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,7 +178,8 @@
     <MESSAGE value="Function Headers and instance variables.&#10;Start of function: Prototype" />
     <MESSAGE value="Fully functional no comments with enter and line break (No backspace)" />
     <MESSAGE value="Fully functional no comments with enter and line break &#10;BackSpace working for current line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fully functional no comments with enter and line break &#10;BackSpace working for current line" />
+    <MESSAGE value="Fully functional comments with enter and line break &#10;BackSpace working for current line" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fully functional comments with enter and line break &#10;BackSpace working for current line" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
